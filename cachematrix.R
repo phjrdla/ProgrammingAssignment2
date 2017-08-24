@@ -69,14 +69,16 @@ makeCacheMatrix <- function(x = matrix()) {
 ## m : cached inverse matrix data
 cacheSolve <- function(x, ...) {
       
-      ## Return a matrix that is the inverse of 'x'
+      ## Look for cached inverse matrix data location
       m <- x$getminv()
       
-      ## check for cached inverse matrix
+      ## return cached inverse matrix data
       if (!is.null(m)) {
             message("getting cached inverse matrix")
             return(m)
       }
+      
+      ## no cached inverse matrix data was found
       
       ## compute and cache inverse matrix
       x$setminv()
